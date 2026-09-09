@@ -7,6 +7,7 @@ import AiResponse from "./pages/AiResponse";
 import LoginPage from "./pages/LoginPage";
 import ResOfMyTrip from "./pages/ResOfMyTrip";
 import{ToastContainer} from 'react-toastify'
+import { Analytics } from '@vercel/analytics/react'
 const App = () => {
   return (
     <>
@@ -18,7 +19,8 @@ const App = () => {
       <Route path="/my-trip" element={<MyTripPage />} />
       <Route path="/ai-response" element={<AiResponse />} />
       <Route path="/res-mytrip" element={<ResOfMyTrip />} />
-    </Routes>    
+    </Routes>
+    <Analytics />
     </>
   )
 }
