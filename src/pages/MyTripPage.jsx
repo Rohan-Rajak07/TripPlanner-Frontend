@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 export default function MyTripPage() {
 
   const navigate = useNavigate();
-  const{api}=useContext(AppContext);
+  const{backendUrl}=useContext(AppContext);
   const [getTrips, setGetTrips] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -19,7 +19,7 @@ export default function MyTripPage() {
     try {
       setLoading(true);
       axios.defaults.withCredentials=true
-      const data=await api.get('/auth/get-trip');
+      const data=await axios.get(backendUrl+'/auth/get-trip');
       if(data.data.success)
       {
           setGetTrips((data.data.getTrip).reverse());

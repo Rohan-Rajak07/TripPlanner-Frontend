@@ -17,7 +17,7 @@ const LoginPage = () => {
   const[password,setPassword]=useState('');
   const[loading, setLoading] = useState(false);
 
-  const{isAuth,setIsLogin,api}=useContext(AppContext)
+  const{isAuth,setIsLogin,backendUrl}=useContext(AppContext)
   const onSubmitHandler= async(e)=>
   {
     try
@@ -27,7 +27,7 @@ const LoginPage = () => {
       setLoading(true);
       if(state==='Sign Up')
       {
-        const data=await api.post('/auth/register',{name,email,password})
+        const data=await axios.post(backendUrl+'/auth/register',{name,email,password})
         if(data.data.success)
         {
           toast.success(data.data.message)
@@ -44,7 +44,7 @@ const LoginPage = () => {
       }
       else
       {
-        const data=await api.post('/auth/login',{email,password})
+        const data=await axios.post(backendUrl+'/auth/login',{email,password})
         if(data.data.success)
         {
           toast.success(data.data.message);
