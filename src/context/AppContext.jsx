@@ -6,7 +6,8 @@ import {toast} from 'react-toastify'
 export const AppContextProvider=(props)=>{
     
     axios.defaults.withCredentials=true;
-    const backendUrl="https://trip-backend-pi.vercel.app";
+    // const backendUrl="https://trip-backend-pi.vercel.app";
+    const backendUrl = "/api"
 
     const [destination, setDestination] = useState("");
     const [days, setDays] = useState("");
