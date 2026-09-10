@@ -19,7 +19,7 @@ export default function MyTripPage() {
     try {
       setLoading(true);
       axios.defaults.withCredentials=true
-      const data=await axios.get(backendUrl+'/api/auth/get-trip');
+      const data=await axios.get(backendUrl+'/auth/get-trip');
       if(data.data.success)
       {
           setGetTrips((data.data.getTrip).reverse());
